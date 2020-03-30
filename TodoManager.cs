@@ -24,7 +24,23 @@ namespace TodoManagerClass
             }
             catch { todos = new List<ToDo>(); }
 
-            Console.WriteLine("TodoManager\n" + functions);
+            bool are_deadlines = false;
+
+            foreach (ToDo todo in todos)
+            {
+                if (todo.Deadline.Date == DateTime.Now.Date)
+                {
+                    if (are_deadlines == false)
+                    {
+                        Console.WriteLine("Here are tasks for today:\n\n");
+                        are_deadlines = true;
+                    }
+                    Console.WriteLine("**********************************************************************\n");
+                    Console.WriteLine(todo.ToString());
+                }
+            }
+
+            Console.WriteLine("**********************************************************************\n\n" + functions);
             string action = Console.ReadLine();
 
             while (action != "close")

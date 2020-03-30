@@ -26,11 +26,11 @@ namespace ToDoClass
             string res = "";
 
             if (Finished)
-                res += "\tDONE\n";
+                res += "DONE\n";
 
             res += Name + $"\tPriority: {Priority.ToString()}";
             if (HasDeadline)
-                res += $"\tDeadline: {Deadline.ToString()}";
+                res += $"\tDeadline: {Deadline.Date.ToString()}";
             res += "\n\n";
             res += Description;
             return res;
